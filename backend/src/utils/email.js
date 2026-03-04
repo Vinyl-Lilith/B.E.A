@@ -1,31 +1,15 @@
-// utils/email.js
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-let transporter = null;
-
-function getTransporter() {
-  if (transporter) return transporter;
-  transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD, // Gmail App Password (not account password)
-    },
-  });
-  return transporter;
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
+const FROM = process.env.RESEND_FROM || "BioCube <onboarding@resend.dev>";
 
 async function sendEmail({ to, subject, html }) {
   try {
-    const t = getTransporter();
-    await t.sendMail({
-      from: `"BioCube" <${process.env.GMAIL_USER}>`,
-      to, subject, html,
-    });
-    console.log(`[EMAIL] Sent to ${to}: ${subject}`);
+    const { data, error } = await resend.emails.send({ from: FROM, to, subject, html });
+    if (error) console.error("[EMAIL] Resend error:", error.message);
+    else console.log(`[EMAIL] Sent to ${to} (id: ${data.id})`);
   } catch (err) {
     console.error("[EMAIL] Failed:", err.message);
-    // Don't throw — email failure should not break the API response
   }
 }
 
