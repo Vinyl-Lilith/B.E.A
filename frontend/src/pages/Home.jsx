@@ -99,7 +99,7 @@ export default function Home({ liveData, sysStatus }) {
       />
 
       {/* Sensor cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div className="bc-grid-4" style={{ marginBottom: 24 }}>
         <SensorCard label="Temperature" value={sensors.tempAvg?.toFixed(1)} unit="°C"
           threshold={thresholds.tempMax} thresholdLabel="Max"
           status={sensors.tempAvg > thresholds.tempMax ? 'danger' : sensors.tempAvg > thresholds.tempMax - 2 ? 'warn' : 'normal'} />
@@ -115,7 +115,7 @@ export default function Home({ liveData, sysStatus }) {
       </div>
 
       {/* NPK row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 24 }}>
+      <div className="bc-grid-3" style={{ marginBottom: 24 }}>
         {[['Nitrogen (N)', 'npk_N', 'var(--chart-1)'], ['Phosphorus (P)', 'npk_P', 'var(--chart-2)'], ['Potassium (K)', 'npk_K', 'var(--chart-3)']].map(([label, key, color]) => (
           <div key={key} style={{ background: 'var(--bg-card)', border: `1px solid var(--border)`, borderRadius: 12, padding: 16, position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: color }} />
@@ -131,7 +131,7 @@ export default function Home({ liveData, sysStatus }) {
       </div>
 
       {/* Webcam + Temp/Hum chart */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 16, marginBottom: 24 }}>
+      <div className="bc-grid-2" style={{ marginBottom: 24 }}>
         {/* Webcam */}
         <WebcamFeed />
 
@@ -161,7 +161,7 @@ export default function Home({ liveData, sysStatus }) {
       </div>
 
       {/* Soil + NPK chart */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+      <div className="bc-grid-2" style={{ marginBottom: 24 }}>
         <Card>
           <div style={{ marginBottom: 16, fontFamily: '"Syne", sans-serif', fontWeight: 600 }}>Soil Moisture</div>
           <ResponsiveContainer width="100%" height={160}>
