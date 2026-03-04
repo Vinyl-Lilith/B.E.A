@@ -60,7 +60,7 @@ export default function Manual({ liveData }) {
       {error   && <Alert type="danger"  style={{ marginBottom: 16 }}>{error}</Alert>}
       {success && <Alert type="success" style={{ marginBottom: 16 }}>✓ {success}</Alert>}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
+      <div className="bc-grid-2">
         {ACTUATORS.map(({ key, label, desc, icon }) => {
           const isOn = key === 'peltier' ? actuators.peltierOn : actuators[key]
           return (
