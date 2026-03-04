@@ -68,7 +68,7 @@ export default function Admin({ sysStatus }) {
       <PageHeader title="Admin" subtitle="User management and system oversight" />
 
       {/* System status cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12, marginBottom: 24 }}>
+      <div className="bc-grid-auto" style={{ marginBottom: 24 }}>
         {[
           { label: 'Total Users', value: users.length },
           { label: 'Pending Resets', value: requests.length },
@@ -98,7 +98,7 @@ export default function Admin({ sysStatus }) {
         <div style={{ color: 'var(--text-muted)', fontFamily: '"DM Mono", monospace', fontSize: '0.85rem' }}>Loading…</div>
       ) : tab === 'users' ? (
         <Card style={{ overflowX: 'auto', padding: 0 }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+          <div className="bc-table-wrap"><table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem', minWidth: 560 }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--border)' }}>
                 {['Username', 'Email', 'Role', 'Status', 'Joined', 'Actions'].map(h => (
