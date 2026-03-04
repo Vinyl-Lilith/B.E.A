@@ -269,3 +269,34 @@ body::before {
 }
 
 .fade-in { animation: fadeInUp 0.35s ease both; }
+
+/* ── RESPONSIVE GRID HELPERS ─────────────────────────────── */
+/* Use these className helpers throughout pages for mobile-friendly grids */
+.bc-grid-2   { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.bc-grid-3   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bc-grid-4   { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.bc-grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 16px; }
+
+@media (max-width: 1100px) {
+  .bc-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .bc-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .bc-grid-2, .bc-grid-3, .bc-grid-4 { grid-template-columns: 1fr; gap: 10px; }
+  .bc-grid-auto { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; font-size: 15px; }
+}
+
+/* Table horizontal scroll on mobile */
+.bc-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Minimum touch targets on mobile */
+@media (max-width: 768px) {
+  button:not([style*="width: 6px"]) { min-height: 36px; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
