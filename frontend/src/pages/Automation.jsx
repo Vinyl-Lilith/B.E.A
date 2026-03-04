@@ -96,7 +96,7 @@ export default function Automation({ liveData }) {
 
       {/* Environment */}
       <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: 3, color: 'var(--text-muted)', fontFamily: '"DM Mono", monospace', marginBottom: 10 }}>Environment</div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12, marginBottom: 24 }}>
+      <div className="bc-grid-3" style={{ marginBottom: 24 }}>
         <SliderWithSend k="tempMax"     title="Temp Max"      min={15} max={45} unit="°C" />
         <SliderWithSend k="tempMin"     title="Temp Min"      min={5}  max={30} unit="°C" />
         <SliderWithSend k="humidityMax" title="Humidity Max"  min={30} max={100} unit="%" />
@@ -104,14 +104,14 @@ export default function Automation({ liveData }) {
 
       {/* Soil */}
       <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: 3, color: 'var(--text-muted)', fontFamily: '"DM Mono", monospace', marginBottom: 10 }}>Soil</div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12, marginBottom: 24 }}>
+      <div className="bc-grid-3" style={{ marginBottom: 24 }}>
         <SliderWithSend k="soilMoist1" title="Soil Moisture — Plant 1" min={10} max={100} unit="%" hint="Water pump activates below target" />
         <SliderWithSend k="soilMoist2" title="Soil Moisture — Plant 2" min={10} max={100} unit="%" hint="Water pump activates below target" />
       </div>
 
       {/* NPK */}
       <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: 3, color: 'var(--text-muted)', fontFamily: '"DM Mono", monospace', marginBottom: 10 }}>Nutrients (N-P-K)</div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+      <div className="bc-grid-3">
         <SliderWithSend k="npk_N" title="Nitrogen (N)"    min={0} max={200} unit=" mg/kg" color="var(--chart-1)" hint="Nutrient pump activates below target" />
         <SliderWithSend k="npk_P" title="Phosphorus (P)"  min={0} max={200} unit=" mg/kg" color="var(--chart-2)" hint="Nutrient pump activates below target" />
         <SliderWithSend k="npk_K" title="Potassium (K)"   min={0} max={200} unit=" mg/kg" color="var(--chart-3)" hint="Nutrient pump activates below target" />
