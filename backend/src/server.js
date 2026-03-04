@@ -19,6 +19,7 @@ const commandRoutes   = require("./routes/commands");
 
 const app    = express();
 const server = http.createServer(app);
+app.set("trust proxy", 1);
 
 // ── Security & parsing ───────────────────────────────────────
 app.use(helmet());
