@@ -121,7 +121,7 @@ export default function Settings() {
               animation: sfBloom ? 'sunflower-bloom 0.4s ease' : 'none',
             }}>🌻</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 10 }}>
+        <div className="bc-grid-auto" style={{ gap: 10 }}>
           {THEMES.map(t => (
             <button
               key={t.id}
